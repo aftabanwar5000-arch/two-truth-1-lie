@@ -581,17 +581,23 @@ function App() {
       <div className="app-container" style={{ minHeight: '85vh', justifyContent: 'space-between', padding: 0 }}>
         <BackgroundAnimals />
 
-        {/* TOP ROW */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: '1.5rem', boxSizing: 'border-box', zIndex: 10 }}>
+        {/* TOP HEADER ROW */}
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', padding: '1rem 1.5rem', boxSizing: 'border-box', zIndex: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ textAlign: 'left' }}>
             <div style={{ fontSize: 'clamp(1rem, 3vw, 1.2rem)', fontWeight: 'bold', color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
               Room: {roomCode}
             </div>
             <div style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)', color: '#cbd5e1', fontWeight: '600' }}>
               Round {roundInfo ? roundInfo.roundIndex + 1 : 0} of {roundInfo?.totalRounds}
-              {isPlayer && <span style={{ marginLeft: '1rem', color: '#fbbf24' }}>Score: {score}</span>}
             </div>
           </div>
+          
+          {isPlayer && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(25, 27, 42, 0.6)', backdropFilter: 'blur(10px)', padding: '0.5rem 1rem', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 4px 15px rgba(0,0,0,0.3)' }}>
+              <span style={{ fontSize: '1.2rem' }}>🏆</span>
+              <span style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#fbbf24' }}>{score}</span>
+            </div>
+          )}
         </div>
 
         {/* MIDDLE ROW (Banner + Cards) */}
