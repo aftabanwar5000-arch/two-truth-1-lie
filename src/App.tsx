@@ -640,9 +640,9 @@ function App() {
         {/* BOTTOM ROW */}
         <div style={{ width: '100%', padding: '1rem', boxSizing: 'border-box', minHeight: '80px', display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center', justifyContent: 'flex-end', zIndex: 10 }}>
           
-          {gameStatus === 'playing' && isPlayer && (
+          {gameStatus === 'playing' && isPlayer && !isMyTurn && selectedStatementId && (
              <div className="status-message neutral" style={{ background: 'rgba(0,0,0,0.5)', padding: '0.6rem 2rem', borderRadius: '2rem', color: '#fff', fontSize: '1.1rem' }}>
-                {isMyTurn ? "Sit tight! Everyone is trying to guess your lie." : (selectedStatementId ? "Waiting for others to guess..." : "")}
+                Waiting for others to guess...
              </div>
           )}
 
