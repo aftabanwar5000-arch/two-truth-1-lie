@@ -112,7 +112,7 @@ io.on('connection', (socket) => {
       { id: generateId(), text: lie, isLie: true },
     ];
 
-    io.to(room.hostId).emit('player_submitted', {
+    io.to(code).emit('player_submitted', {
       playerId: socket.id,
       totalSubmitted: Object.keys(room.submissions).length,
       totalPlayers: room.players.length

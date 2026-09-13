@@ -445,9 +445,9 @@ function App() {
         <div className="view-container">
           <BackgroundAnimals />
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem', zIndex: 10 }}>
-            {/* Cute Panda Icon */}
-            <div style={{ fontSize: '7rem', animation: 'float 3s ease-in-out infinite' }}>
-              🐼
+            {/* Cute Ghost Icon */}
+            <div style={{ fontSize: '7rem' }}>
+              👻
             </div>
             
             <div className="header" style={{ marginBottom: 0 }}>
@@ -476,9 +476,9 @@ function App() {
         <div className="view-container">
           <BackgroundAnimals />
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem', zIndex: 10 }}>
-            {/* Cute Panda Icon */}
-            <div style={{ fontSize: '7rem', animation: 'float 3s ease-in-out infinite' }}>
-              🐼
+            {/* Cute Ghost Icon */}
+            <div style={{ fontSize: '7rem' }}>
+              👻
             </div>
             
             <div className="header" style={{ marginBottom: 0 }}>
