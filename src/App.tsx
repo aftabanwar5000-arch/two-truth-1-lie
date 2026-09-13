@@ -443,16 +443,15 @@ function App() {
     if (!isPlayer) {
       return (
         <div className="view-container">
-          <BackgroundAnimals />
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem', zIndex: 10 }}>
             {/* Cute Ghost Icon */}
-            <div style={{ fontSize: '7rem' }}>
+            <div style={{ fontSize: '7rem', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))' }}>
               👻
             </div>
             
-            <div className="header" style={{ marginBottom: 0 }}>
-              <h1 className="title" style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>Please wait...</h1>
-              <p className="subtitle" style={{ fontSize: '1.2rem', opacity: 0.8 }}>Players are writing their truths and lies!</p>
+            <div style={{ textAlign: 'center', marginBottom: 0 }}>
+              <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)', fontWeight: 900, color: '#fff', letterSpacing: '-1px', margin: '0 0 0.5rem 0', textShadow: '0 4px 15px rgba(0,0,0,0.4)' }}>Please wait...</h1>
+              <p style={{ fontSize: 'clamp(1rem, 4vw, 1.2rem)', color: '#cbd5e1', fontWeight: 500, margin: 0, letterSpacing: '0.5px' }}>Players are writing their truths and lies</p>
             </div>
             
             {/* Professional Submission Tracker */}
@@ -474,16 +473,15 @@ function App() {
     if (submissionStep === 'done') {
       return (
         <div className="view-container">
-          <BackgroundAnimals />
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem', zIndex: 10 }}>
             {/* Cute Ghost Icon */}
-            <div style={{ fontSize: '7rem' }}>
+            <div style={{ fontSize: '7rem', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))' }}>
               👻
             </div>
             
-            <div className="header" style={{ marginBottom: 0 }}>
-              <h1 className="title" style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>Please wait...</h1>
-              <p className="subtitle" style={{ fontSize: '1.2rem', opacity: 0.8 }}>Waiting for others to finish writing!</p>
+            <div style={{ textAlign: 'center', marginBottom: 0 }}>
+              <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)', fontWeight: 900, color: '#fff', letterSpacing: '-1px', margin: '0 0 0.5rem 0', textShadow: '0 4px 15px rgba(0,0,0,0.4)' }}>Please wait...</h1>
+              <p style={{ fontSize: 'clamp(1rem, 4vw, 1.2rem)', color: '#cbd5e1', fontWeight: 500, margin: 0, letterSpacing: '0.5px' }}>Waiting for others to finish writing</p>
             </div>
             
             {/* Professional Submission Tracker */}
