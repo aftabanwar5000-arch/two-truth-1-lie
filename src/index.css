@@ -31,18 +31,14 @@ body {
   transition: background 0.5s ease;
 }
 
-/* --- PARTY THEME (Lobby/Game) --- */
-body.theme-party {
-  background: linear-gradient(135deg, #ff9eb1 0%, #f76891 50%, #d44990 100%);
-}
-
-/* --- DARK THEME (Home/Create/Join) --- */
-body.theme-dark {
+/* --- DARK THEME GLOBALLY --- */
+body.theme-dark, body {
   background: linear-gradient(-45deg, #0f172a, #3b0764, #0f172a, #172554);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
 }
-body.theme-dark::before, body.theme-dark::after {
+body.theme-dark::before, body.theme-dark::after,
+body::before, body::after {
   content: '';
   position: fixed;
   width: 400px;
@@ -52,11 +48,11 @@ body.theme-dark::before, body.theme-dark::after {
   z-index: -1;
   animation: float 12s infinite ease-in-out alternate;
 }
-body.theme-dark::before {
+body.theme-dark::before, body::before {
   background: rgba(168, 85, 247, 0.4);
   top: -10%; left: -10%;
 }
-body.theme-dark::after {
+body.theme-dark::after, body::after {
   background: rgba(59, 130, 246, 0.3);
   bottom: -10%; right: -10%;
   animation-duration: 15s;
