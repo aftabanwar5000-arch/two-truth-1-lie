@@ -146,11 +146,7 @@ function App() {
 
   // Theme toggler based on view
   useEffect(() => {
-    if (view === 'home' || view === 'create_game' || view === 'join_game') {
-      document.body.className = 'theme-dark';
-    } else {
-      document.body.className = 'theme-party';
-    }
+    document.body.className = 'theme-dark';
   }, [view]);
 
   const handleCreateRoom = () => {
