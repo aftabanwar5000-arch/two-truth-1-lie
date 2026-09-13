@@ -250,6 +250,7 @@ function App() {
   if (view === 'home') {
     return (
       <div className="view-container">
+        <BackgroundAnimals />
         <div style={{ position: 'absolute', top: '2rem', color: '#94a3b8', fontSize: '1rem', letterSpacing: '1px', textTransform: 'uppercase' }}>
           Created by <span style={{ color: '#a855f7', fontWeight: '800' }}>Prime</span>
         </div>
@@ -280,6 +281,7 @@ function App() {
   if (view === 'create_game') {
     return (
       <div className="view-container">
+        <BackgroundAnimals />
         <div style={{ position: 'absolute', top: '2rem', color: '#94a3b8', fontSize: '1.2rem', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 'bold' }}>
           Game Setup
         </div>
@@ -342,6 +344,7 @@ function App() {
   if (view === 'join_game') {
     return (
       <div className="view-container">
+        <BackgroundAnimals />
         <div style={{ position: 'absolute', top: '2rem', color: '#94a3b8', fontSize: '1.2rem', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 'bold' }}>
           Join Room
         </div>
@@ -458,6 +461,7 @@ function App() {
     if (!isPlayer) {
       return (
         <div className="view-container">
+          <BackgroundAnimals />
           <div className="header">
             <h1 className="title">Writing Phase</h1>
             <p className="subtitle">Players are writing their truths and lies...</p>
@@ -477,6 +481,7 @@ function App() {
     if (submissionStep === 'done') {
       return (
         <div className="view-container">
+          <BackgroundAnimals />
           <div className="header">
             <h1 className="title">Great Job!</h1>
             <p className="subtitle">Waiting for others to finish writing...</p>
@@ -495,6 +500,7 @@ function App() {
 
     return (
       <div className="view-container">
+        <BackgroundAnimals />
         <div className="glass-panel" style={{ maxWidth: '500px' }}>
           
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '2rem' }}>
@@ -555,6 +561,7 @@ function App() {
     const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
     return (
       <div className="view-container">
+        <BackgroundAnimals />
         <div className="header">
           <h1 className="title">Game Over!</h1>
           <p className="subtitle">Final Standings</p>
