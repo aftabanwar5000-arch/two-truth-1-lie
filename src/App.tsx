@@ -249,28 +249,28 @@ function App() {
 
   if (view === 'home') {
     return (
-      <div className="app-container" style={{ minHeight: '90vh', justifyContent: 'space-between', flexDirection: 'column', padding: '2rem 0' }}>
-        <div style={{ width: '100%', textAlign: 'center', color: '#94a3b8', fontSize: '1rem', letterSpacing: '1px', textTransform: 'uppercase' }}>
+      <div className="view-container">
+        <div style={{ position: 'absolute', top: '2rem', color: '#94a3b8', fontSize: '1rem', letterSpacing: '1px', textTransform: 'uppercase' }}>
           Created by <span style={{ color: '#a855f7', fontWeight: '800' }}>Prime</span>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div className="header" style={{ textAlign: 'center' }}>
+        <div className="glass-panel" style={{ background: 'transparent', boxShadow: 'none', border: 'none' }}>
+          <div className="header">
             <h1 className="title">2 Truths 1 Lie</h1>
             <p className="subtitle">Play with friends or test yourself!</p>
           </div>
           
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2rem', width: '100%', maxWidth: '300px' }}>
-            <button className="action-button" style={{ marginTop: 0 }} onClick={() => setView('create_game')}>
+          <div className="btn-group vertical" style={{ marginTop: '2rem', maxWidth: '300px', margin: '0 auto' }}>
+            <button className="action-button btn-primary" onClick={() => setView('create_game')}>
               Create Game
             </button>
-            <button className="action-button" style={{ marginTop: 0, background: 'linear-gradient(135deg, #475569 0%, #334155 100%)', boxShadow: '0 4px 15px rgba(71, 85, 105, 0.4)' }} onClick={() => setView('join_game')}>
+            <button className="action-button btn-secondary" onClick={() => setView('join_game')}>
               Join Game
             </button>
           </div>
         </div>
 
-        <div style={{ width: '100%', textAlign: 'center', color: '#64748b', fontSize: '0.9rem' }}>
+        <div style={{ position: 'absolute', bottom: '2rem', color: '#64748b', fontSize: '0.9rem' }}>
           <span style={{ color: '#3b82f6', fontWeight: '600' }}>Among Us Pakistan</span> Discord Server
         </div>
       </div>
@@ -279,65 +279,58 @@ function App() {
 
   if (view === 'create_game') {
     return (
-      <div className="app-container" style={{ minHeight: '90vh', justifyContent: 'center', flexDirection: 'column', gap: '2rem' }}>
-        <div style={{ width: '100%', textAlign: 'center', color: '#94a3b8', fontSize: '1.2rem', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 'bold' }}>
+      <div className="view-container">
+        <div style={{ position: 'absolute', top: '2rem', color: '#94a3b8', fontSize: '1.2rem', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 'bold' }}>
           Game Setup
         </div>
         
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--glass-bg)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', border: '1px solid var(--glass-border)', borderRadius: '1rem', padding: '3rem 2rem', boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)', width: '100%', maxWidth: '400px' }}>
-          <h2 style={{ fontSize: '2rem', marginBottom: '0.5rem', fontWeight: 800, background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Host a Game</h2>
+        <div className="glass-panel">
+          <h2 className="panel-title">Host a Game</h2>
           <p style={{ color: '#94a3b8', marginBottom: '2.5rem', textAlign: 'center', fontSize: '1.1rem' }}>How many people are playing?</p>
           
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', width: '100%', marginBottom: '1.5rem' }}>
-            <label style={{ color: '#cbd5e1', fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Number of Players (2 - 100)</label>
+          <div className="form-group">
+            <label className="input-label">Number of Players (2 - 100)</label>
             <input 
               type="number" 
               min="2" 
               max="100" 
               value={playerCount}
               onChange={(e) => setPlayerCount(e.target.value)}
-              style={{
-                width: '100%', padding: '1rem', borderRadius: '0.75rem', border: '1px solid #475569', background: 'rgba(15, 23, 42, 0.6)', color: '#f8fafc', fontSize: '1.1rem', outline: 'none', transition: 'border-color 0.3s', boxSizing: 'border-box'
-              }}
-              onFocus={(e) => e.target.style.borderColor = '#6366f1'}
-              onBlur={(e) => e.target.style.borderColor = '#475569'}
+              className="input-field"
             />
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', width: '100%', marginBottom: '1rem' }}>
-            <label style={{ color: '#f8fafc', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+          <div className="form-group" style={{ marginBottom: '1rem' }}>
+            <label className="checkbox-label">
               <input 
                 type="checkbox" 
                 checked={hostIsPlaying} 
                 onChange={(e) => setHostIsPlaying(e.target.checked)} 
-                style={{ width: '20px', height: '20px', cursor: 'pointer', accentColor: '#a855f7' }}
+                className="checkbox-input"
               />
               I also want to play
             </label>
           </div>
 
           {hostIsPlaying && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', width: '100%', marginBottom: '2.5rem' }}>
-              <label style={{ color: '#cbd5e1', fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Your Nickname</label>
+            <div className="form-group">
+              <label className="input-label">Your Nickname</label>
               <input 
                 type="text" 
                 value={playerName}
                 onChange={(e) => setPlayerName(e.target.value)}
-                style={{
-                  width: '100%', padding: '1rem', borderRadius: '0.75rem', border: '1px solid #475569', background: 'rgba(15, 23, 42, 0.6)', color: '#f8fafc', fontSize: '1.1rem', outline: 'none', transition: 'border-color 0.3s', boxSizing: 'border-box'
-                }}
-                onFocus={(e) => e.target.style.borderColor = '#6366f1'}
-                onBlur={(e) => e.target.style.borderColor = '#475569'}
+                className="input-field"
+                placeholder="Enter nickname"
               />
             </div>
           )}
           {!hostIsPlaying && <div style={{ marginBottom: '2.5rem' }} />}
           
-          <div style={{ display: 'flex', gap: '1rem', width: '100%' }}>
-             <button className="action-button" style={{ marginTop: 0, flex: 1, padding: '1rem 1.5rem', background: 'linear-gradient(135deg, #475569 0%, #334155 100%)', boxShadow: '0 4px 15px rgba(71, 85, 105, 0.4)' }} onClick={() => setView('home')}>
+          <div className="btn-group">
+             <button className="action-button btn-secondary" onClick={() => setView('home')}>
                 Back
              </button>
-             <button className="action-button" style={{ marginTop: 0, flex: 1, padding: '1rem 1.5rem' }} onClick={handleCreateRoom}>
+             <button className="action-button btn-primary" onClick={handleCreateRoom}>
                 Create Lobby
              </button>
           </div>
@@ -348,40 +341,43 @@ function App() {
 
   if (view === 'join_game') {
     return (
-      <div className="app-container" style={{ minHeight: '90vh', justifyContent: 'center', flexDirection: 'column', gap: '2rem' }}>
-        <div style={{ width: '100%', textAlign: 'center', color: '#94a3b8', fontSize: '1.2rem', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 'bold' }}>
+      <div className="view-container">
+        <div style={{ position: 'absolute', top: '2rem', color: '#94a3b8', fontSize: '1.2rem', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: 'bold' }}>
           Join Room
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--glass-bg)', backdropFilter: 'blur(12px)', border: '1px solid var(--glass-border)', borderRadius: '1rem', padding: '3rem 2rem', boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)', width: '100%', maxWidth: '400px' }}>
-          <h2 style={{ fontSize: '2rem', marginBottom: '0.5rem', fontWeight: 800, background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Join Game</h2>
+        <div className="glass-panel">
+          <h2 className="panel-title">Join Game</h2>
           
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '100%', marginBottom: '2.5rem', marginTop: '1.5rem' }}>
-            <div>
-              <label style={{ color: '#cbd5e1', fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase' }}>Room Code</label>
+          <div className="form-group" style={{ marginTop: '1.5rem', marginBottom: '2.5rem' }}>
+            <div className="form-group">
+              <label className="input-label">Room Code</label>
               <input 
                 type="text" 
                 value={roomCode}
                 onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
-                style={{ width: '100%', padding: '1rem', borderRadius: '0.75rem', border: '1px solid #475569', background: 'rgba(15, 23, 42, 0.6)', color: '#f8fafc', fontSize: '1.1rem', outline: 'none', marginTop: '0.5rem', boxSizing: 'border-box', textTransform: 'uppercase' }}
+                className="input-field"
+                style={{ textTransform: 'uppercase' }}
+                placeholder="Enter 5-letter code"
               />
             </div>
-            <div>
-              <label style={{ color: '#cbd5e1', fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase' }}>Your Nickname</label>
+            <div className="form-group">
+              <label className="input-label">Your Nickname</label>
               <input 
                 type="text" 
                 value={playerName}
                 onChange={(e) => setPlayerName(e.target.value)}
-                style={{ width: '100%', padding: '1rem', borderRadius: '0.75rem', border: '1px solid #475569', background: 'rgba(15, 23, 42, 0.6)', color: '#f8fafc', fontSize: '1.1rem', outline: 'none', marginTop: '0.5rem', boxSizing: 'border-box' }}
+                className="input-field"
+                placeholder="Enter nickname"
               />
             </div>
           </div>
           
-          <div style={{ display: 'flex', gap: '1rem', width: '100%' }}>
-             <button className="action-button" style={{ marginTop: 0, flex: 1, padding: '1rem 1.5rem', background: 'linear-gradient(135deg, #475569 0%, #334155 100%)' }} onClick={() => setView('home')}>
+          <div className="btn-group">
+             <button className="action-button btn-secondary" onClick={() => setView('home')}>
                 Back
              </button>
-             <button className="action-button" style={{ marginTop: 0, flex: 1, padding: '1rem 1.5rem' }} onClick={handleJoinRoom}>
+             <button className="action-button btn-primary" onClick={handleJoinRoom}>
                 Join Room
              </button>
           </div>
@@ -395,45 +391,45 @@ function App() {
       <div className="app-container" style={{ maxWidth: '1200px' }}>
         <BackgroundAnimals />
         <div className="header" style={{ marginBottom: '1.5rem' }}>
-          <h1 className="title" style={{ fontSize: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.8rem', textTransform: 'capitalize' }}>
+          <h1 className="title" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.8rem', textTransform: 'capitalize' }}>
             Two Truths & A Lie 👁️
           </h1>
         </div>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', width: '100%', justifyContent: 'center' }}>
+        <div className="lobby-grid">
           {/* Left Panel: Join Info */}
-          <div style={{ flex: '1 1 350px', maxWidth: '450px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '1.5rem', background: 'var(--glass-bg)', backdropFilter: 'blur(12px)', border: '1px solid var(--glass-border)', borderRadius: '1.5rem', boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)' }}>
+          <div className="lobby-panel">
             <h2 style={{ fontSize: '1.4rem', marginBottom: '0.5rem', color: '#f8fafc', fontWeight: 800 }}>Join by Pin</h2>
             <p style={{ color: '#cbd5e1', fontSize: '1rem', marginBottom: '1rem' }}>Go to <strong>Two Truth 1 Lie</strong></p>
             <div style={{ fontSize: '4rem', fontWeight: 900, letterSpacing: '4px', color: '#fff', textShadow: '0 4px 10px rgba(0,0,0,0.2)', marginBottom: '0.5rem' }}>
               {roomCode}
             </div>
-            <button className="action-button" style={{ marginTop: '0.5rem', padding: '0.6rem 1.5rem', fontSize: '1rem', background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)', boxShadow: '0 4px 15px rgba(249, 115, 22, 0.4)' }} onClick={() => { navigator.clipboard.writeText(roomCode); alert('Room code copied!'); }}>
+            <button className="action-button btn-accent" style={{ padding: '0.6rem 1.5rem', fontSize: '1rem', width: 'auto' }} onClick={() => { navigator.clipboard.writeText(roomCode); alert('Room code copied!'); }}>
               Copy Code
             </button>
           </div>
 
           {/* Right Panel: Players */}
-          <div style={{ flex: '1 1 350px', maxWidth: '450px', minHeight: '250px', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1.5rem', background: 'var(--glass-bg)', backdropFilter: 'blur(12px)', border: '1px solid var(--glass-border)', borderRadius: '1.5rem', boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)' }}>
+          <div className="lobby-panel">
             <h2 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: '#f8fafc', fontWeight: 700 }}>{players.length} Players Joined</h2>
             
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'center', width: '100%', overflowY: 'auto', maxHeight: '200px' }}>
+            <div className="player-list">
               {players.length === 0 && <p style={{ color: '#64748b', fontStyle: 'italic', fontSize: '1.1rem' }}>Waiting for players...</p>}
               {players.map(p => (
-                <div key={p.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', position: 'relative' }}>
+                <div key={p.id} className="player-avatar-container">
                   {isHost && p.id !== socket.id && (
                     <button 
                       onClick={() => socket.emit('kick_player', { code: roomCode, targetId: p.id })}
-                      style={{ position: 'absolute', top: '-5px', right: '-5px', background: '#ef4444', color: 'white', border: 'none', borderRadius: '50%', width: '22px', height: '22px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', boxShadow: '0 2px 5px rgba(0,0,0,0.5)', zIndex: 10 }}
+                      className="kick-btn"
                       title={`Kick ${p.name}`}
                     >
                       ×
                     </button>
                   )}
-                  <div style={{ width: '55px', height: '55px', borderRadius: '50%', background: '#e11d48', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', boxShadow: '0 4px 10px rgba(0,0,0,0.3)' }}>
+                  <div className="player-avatar">
                     🧑‍🦱
                   </div>
-                  <span style={{ fontSize: '0.9rem', fontWeight: 'bold', textTransform: 'uppercase', color: '#fff' }}>{p.name}</span>
+                  <span className="player-name" title={p.name}>{p.name}</span>
                 </div>
               ))}
             </div>
@@ -442,15 +438,15 @@ function App() {
 
         {isHost ? (
           <button 
-            className="action-button" 
+            className="action-button btn-accent" 
             onClick={handleStartSubmission} 
             disabled={players.length < 2} 
-            style={{ marginTop: '2rem', fontSize: '1.3rem', padding: '0.8rem 4rem', background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)', border: '4px solid rgba(255,255,255,0.2)', boxShadow: '0 10px 25px rgba(249, 115, 22, 0.4)', opacity: players.length < 2 ? 0.5 : 1 }}
+            style={{ marginTop: '2rem', fontSize: '1.3rem', padding: '1rem 4rem', width: 'auto', maxWidth: '300px' }}
           >
             {players.length < 2 ? "Need 2+ Players to Start" : "Start"}
           </button>
         ) : (
-          <div className="status-message neutral" style={{ marginTop: '2rem', fontSize: '1.3rem' }}>
+          <div className="status-message neutral">
             Waiting for host to start...
           </div>
         )}
@@ -461,8 +457,8 @@ function App() {
   if (view === 'submission') {
     if (!isPlayer) {
       return (
-        <div className="app-container">
-          <div className="header" style={{ textAlign: 'center' }}>
+        <div className="view-container">
+          <div className="header">
             <h1 className="title">Writing Phase</h1>
             <p className="subtitle">Players are writing their truths and lies...</p>
           </div>
@@ -470,7 +466,7 @@ function App() {
             <span style={{ fontSize: '1.2rem' }}>Submitted: {submittedCount} / {players.length}</span>
           </div>
           {isHost && submittedCount === players.length && (
-            <button className="action-button" onClick={handleStartGameRounds}>
+            <button className="action-button btn-accent" style={{ marginTop: '2rem' }} onClick={handleStartGameRounds}>
               Begin Game
             </button>
           )}
@@ -480,8 +476,8 @@ function App() {
 
     if (submissionStep === 'done') {
       return (
-        <div className="app-container">
-          <div className="header" style={{ textAlign: 'center' }}>
+        <div className="view-container">
+          <div className="header">
             <h1 className="title">Great Job!</h1>
             <p className="subtitle">Waiting for others to finish writing...</p>
           </div>
@@ -489,7 +485,7 @@ function App() {
             <span style={{ fontSize: '1.2rem' }}>Submitted: {submittedCount} / {players.length}</span>
           </div>
           {isHost && submittedCount === players.length && (
-            <button className="action-button" onClick={handleStartGameRounds}>
+            <button className="action-button btn-accent" style={{ marginTop: '2rem' }} onClick={handleStartGameRounds}>
               Begin Game
             </button>
           )}
@@ -498,22 +494,22 @@ function App() {
     }
 
     return (
-      <div className="app-container" style={{ minHeight: '90vh', justifyContent: 'center', position: 'relative' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--glass-bg)', backdropFilter: 'blur(12px)', border: '1px solid var(--glass-border)', borderRadius: '1rem', padding: '3rem 2rem', boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)', width: '100%', maxWidth: '500px' }}>
+      <div className="view-container">
+        <div className="glass-panel" style={{ maxWidth: '500px' }}>
           
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '2rem' }}>
-            <div style={{ width: '30%', height: '5px', background: submissionStep >= 1 ? '#a855f7' : '#334155', borderRadius: '5px' }}></div>
-            <div style={{ width: '30%', height: '5px', background: submissionStep >= 2 ? '#a855f7' : '#334155', borderRadius: '5px' }}></div>
-            <div style={{ width: '30%', height: '5px', background: submissionStep >= 3 ? '#a855f7' : '#334155', borderRadius: '5px' }}></div>
+            <div style={{ flex: 1, height: '6px', background: submissionStep >= 1 ? '#a855f7' : '#334155', borderRadius: '5px', transition: 'background 0.3s' }}></div>
+            <div style={{ flex: 1, height: '6px', background: submissionStep >= 2 ? '#a855f7' : '#334155', borderRadius: '5px', transition: 'background 0.3s' }}></div>
+            <div style={{ flex: 1, height: '6px', background: submissionStep >= 3 ? '#a855f7' : '#334155', borderRadius: '5px', transition: 'background 0.3s' }}></div>
           </div>
 
-          <h2 style={{ fontSize: '2rem', marginBottom: '0.5rem', fontWeight: 800, color: '#f8fafc' }}>
+          <h2 className="panel-title">
             {submissionStep === 1 && "Enter 1st Truth"}
             {submissionStep === 2 && "Enter 2nd Truth"}
             {submissionStep === 3 && "Enter a Lie"}
           </h2>
           
-          <p style={{ color: '#94a3b8', marginBottom: '2rem', textAlign: 'center', fontSize: '1rem' }}>
+          <p style={{ color: '#94a3b8', marginBottom: '2rem', textAlign: 'center', fontSize: '1.1rem' }}>
             {submissionStep === 1 && "Write something true about yourself."}
             {submissionStep === 2 && "Write another true fact."}
             {submissionStep === 3 && "Now, make up something believable!"}
@@ -528,12 +524,13 @@ function App() {
               if (submissionStep === 2) setTruth2(e.target.value);
               if (submissionStep === 3) setLie(e.target.value);
             }}
-            style={{ width: '100%', padding: '1.25rem', borderRadius: '0.75rem', border: '2px solid #6366f1', background: 'rgba(15, 23, 42, 0.6)', color: '#f8fafc', fontSize: '1.2rem', outline: 'none', marginBottom: '2rem', boxSizing: 'border-box' }}
+            className="input-field"
+            style={{ marginBottom: '2rem' }}
           />
 
           <button 
-            className="action-button" 
-            style={{ marginTop: 0, width: '100%', padding: '1rem' }} 
+            className="action-button btn-primary" 
+            style={{ width: '100%' }} 
             onClick={() => {
               if (submissionStep === 1) {
                 if (!truth1) { alert("Please write a truth."); return; }
@@ -557,13 +554,13 @@ function App() {
   if (gameStatus === 'finished') {
     const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
     return (
-      <div className="app-container">
+      <div className="view-container">
         <div className="header">
           <h1 className="title">Game Over!</h1>
           <p className="subtitle">Final Standings</p>
         </div>
         
-        <div className="score-board" style={{ margin: '2rem 0', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+        <div className="score-board" style={{ flexDirection: 'column', gap: '1rem', width: '90%', maxWidth: '400px' }}>
           {sortedPlayers.map((p, index) => (
              <div key={p.id} style={{ display: 'flex', justifyContent: 'space-between', width: '100%', fontSize: '1.2rem', color: index === 0 ? '#fbbf24' : '#f8fafc', padding: '0.5rem 0', borderBottom: index < sortedPlayers.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none' }}>
                <span>{index + 1}. {p.name} {index === 0 && '👑'}</span>
@@ -572,12 +569,12 @@ function App() {
           ))}
         </div>
 
-        <div style={{ display: 'flex', gap: '1rem', width: '100%', maxWidth: '400px', margin: '0 auto' }}>
-          <button className="action-button" style={{ marginTop: '1rem', flex: 1, background: 'linear-gradient(135deg, #475569 0%, #334155 100%)' }} onClick={leaveGame}>
+        <div className="btn-group" style={{ maxWidth: '400px', marginTop: '2rem' }}>
+          <button className="action-button btn-secondary" onClick={leaveGame}>
             Leave Room
           </button>
           {isHost && (
-            <button className="action-button" style={{ marginTop: '1rem', flex: 1 }} onClick={handlePlayAgain}>
+            <button className="action-button btn-primary" onClick={handlePlayAgain}>
               Play Again
             </button>
           )}
@@ -592,33 +589,31 @@ function App() {
     const isMyTurn = roundInfo?.subjectId === socket.id;
 
     return (
-      <div className="app-container" style={{ minHeight: '85vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: 0, position: 'relative' }}>
+      <div className="app-container" style={{ minHeight: '85vh', justifyContent: 'space-between', padding: 0 }}>
         <BackgroundAnimals />
 
         {/* TOP ROW */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: '1.5rem', boxSizing: 'border-box' }}>
-          {/* Top Left Info */}
-          <div style={{ textAlign: 'left', zIndex: 10 }}>
-            <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#fff', marginBottom: '0.2rem', textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
-              Two Truth 1 Lie 👉 {roomCode}
+        <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: '1.5rem', boxSizing: 'border-box', zIndex: 10 }}>
+          <div style={{ textAlign: 'left' }}>
+            <div style={{ fontSize: 'clamp(1rem, 3vw, 1.2rem)', fontWeight: 'bold', color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
+              Room: {roomCode}
             </div>
-            <div style={{ fontSize: '1.1rem', color: '#fff', fontWeight: '600', textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
+            <div style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)', color: '#cbd5e1', fontWeight: '600' }}>
               Round {roundInfo ? roundInfo.roundIndex + 1 : 0} of {roundInfo?.totalRounds}
-              {isPlayer && <span style={{ marginLeft: '1rem', color: '#fff', fontWeight: 'bold' }}>Score: {score}</span>}
+              {isPlayer && <span style={{ marginLeft: '1rem', color: '#fbbf24' }}>Score: {score}</span>}
             </div>
           </div>
         </div>
 
         {/* MIDDLE ROW (Banner + Cards) */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, zIndex: 5, padding: '1rem 0' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, zIndex: 5, width: '100%' }}>
           
-          {/* Top Center Banner */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '3rem', marginTop: '-5vh' }}>
-            <div style={{ fontSize: '2.5rem', background: '#e11d48', borderRadius: '50%', width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 10px rgba(0,0,0,0.3)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '2rem' }}>
+            <div className="player-avatar" style={{ width: '50px', height: '50px', fontSize: '1.5rem' }}>
               🧑‍🦱
             </div>
-            <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.3)', margin: 0, textAlign: 'center' }}>
-              {isMyTurn ? "Everyone's guessing your lie!" : `Guess ${roundInfo?.subjectName}'s lie!`}
+            <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', fontWeight: 800, color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.3)', margin: 0, textAlign: 'center' }}>
+              {isMyTurn ? "They are guessing your lie!" : `Guess ${roundInfo?.subjectName}'s lie!`}
             </h2>
           </div>
 
@@ -650,32 +645,31 @@ function App() {
         {/* BOTTOM ROW */}
         <div style={{ width: '100%', padding: '1rem', boxSizing: 'border-box', minHeight: '80px', display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center', justifyContent: 'flex-end', zIndex: 10 }}>
           
-          {/* Status Message for players */}
           {gameStatus === 'playing' && isPlayer && (
-             <div className="status-message neutral" style={{ margin: 0, background: 'rgba(0,0,0,0.5)', padding: '0.6rem 2rem', borderRadius: '2rem', color: '#fff', fontSize: '1.1rem' }}>
+             <div className="status-message neutral" style={{ background: 'rgba(0,0,0,0.5)', padding: '0.6rem 2rem', borderRadius: '2rem', color: '#fff', fontSize: '1.1rem' }}>
                 {isMyTurn ? "Sit tight! Everyone is trying to guess your lie." : (selectedStatementId ? "Waiting for others to guess..." : "")}
              </div>
           )}
 
           {gameStatus === 'revealed' && !isHost && (
-             <div className="status-message neutral" style={{ margin: 0, background: 'rgba(0,0,0,0.5)', padding: '0.6rem 2rem', borderRadius: '2rem', color: '#fff', fontSize: '1.1rem' }}>
+             <div className="status-message neutral" style={{ background: 'rgba(0,0,0,0.5)', padding: '0.6rem 2rem', borderRadius: '2rem', color: '#fff', fontSize: '1.1rem' }}>
                 Waiting for host to start next round...
              </div>
           )}
 
           {/* Host Controls */}
           {gameStatus === 'playing' && isHost && (
-            <div style={{ position: 'fixed', bottom: '2rem', left: '2rem', background: 'rgba(25, 27, 42, 0.85)', padding: '0.8rem 1.5rem', borderRadius: '1.5rem', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '1.5rem', boxShadow: '0 10px 30px rgba(0,0,0,0.5)', zIndex: 100 }}>
+            <div style={{ position: 'fixed', bottom: '1.5rem', left: '50%', transform: 'translateX(-50%)', background: 'rgba(25, 27, 42, 0.95)', padding: '1rem 1.5rem', borderRadius: '2rem', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', boxShadow: '0 10px 40px rgba(0,0,0,0.6)', zIndex: 100, width: '90%', maxWidth: '400px' }}>
               <span style={{ color: '#cbd5e1', fontWeight: 'bold', fontSize: '1.1rem' }}>Answers: <span style={{ color: '#fff' }}>{answeredCount}/{eligiblePlayersCount}</span></span>
-              <button className="action-button" style={{ margin: 0, padding: '0.8rem 2rem', fontSize: '1.1rem', background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)', boxShadow: '0 4px 15px rgba(249, 115, 22, 0.4)' }} onClick={handleReveal}>
+              <button className="action-button btn-accent" style={{ padding: '0.8rem 2rem', width: '100%' }} onClick={handleReveal}>
                 Reveal Answer
               </button>
             </div>
           )}
 
           {gameStatus === 'revealed' && isHost && (
-            <div style={{ position: 'fixed', bottom: '2rem', left: '2rem', background: 'rgba(25, 27, 42, 0.85)', padding: '0.8rem 1.5rem', borderRadius: '1.5rem', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.5)', zIndex: 100 }}>
-              <button className="action-button" style={{ margin: 0, padding: '0.8rem 2rem', fontSize: '1.1rem', background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)', boxShadow: '0 4px 15px rgba(249, 115, 22, 0.4)' }} onClick={handleStartRound}>
+            <div style={{ position: 'fixed', bottom: '1.5rem', left: '50%', transform: 'translateX(-50%)', background: 'rgba(25, 27, 42, 0.95)', padding: '1rem', borderRadius: '2rem', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', boxShadow: '0 10px 40px rgba(0,0,0,0.6)', zIndex: 100, width: '90%', maxWidth: '300px' }}>
+              <button className="action-button btn-accent" style={{ padding: '0.8rem 2rem', width: '100%' }} onClick={handleStartRound}>
                 Next Round
               </button>
             </div>
