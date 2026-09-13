@@ -297,29 +297,39 @@
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   
-  border: 4px solid transparent;
-  background-clip: padding-box, border-box;
-  background-origin: padding-box, border-box;
-  
+  /* NO border, handled by background and ::before inset */
+  border: none;
   overflow: visible;
   word-break: break-word;
   cursor: pointer;
+  z-index: 1; /* Creates stacking context */
+  
+  /* The moving light is the background of the card itself */
+  background: conic-gradient(from var(--angle), transparent 60%, rgba(255,255,255,0.8) 80%, transparent 100%);
+  animation: card-enter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards, spin-border 3s linear infinite;
 }
 
-.game-card:nth-child(1) { 
-  background-image: linear-gradient(135deg, #ff8a00, #e52e71), conic-gradient(from var(--angle), transparent 70%, rgba(255,255,255,0.8) 85%, transparent 100%);
-  animation: card-enter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards, spin-border 4s linear infinite;
-  animation-delay: 0.1s, 0s;
+/* The solid interior color */
+.game-card::before {
+  content: "";
+  position: absolute;
+  inset: 4px; /* Leaves 4px for the light border */
+  border-radius: calc(1.5rem - 4px);
+  z-index: -1; /* Draws above the card's background, but below the text */
 }
-.game-card:nth-child(2) { 
-  background-image: linear-gradient(135deg, #9d50bb, #6e48aa), conic-gradient(from var(--angle), transparent 70%, rgba(255,255,255,0.8) 85%, transparent 100%);
-  animation: card-enter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards, spin-border 4s linear infinite;
-  animation-delay: 0.2s, 0s;
+
+.game-card:nth-child(1) { animation-delay: 0.1s, 0s; }
+.game-card:nth-child(2) { animation-delay: 0.2s, 0s; }
+.game-card:nth-child(3) { animation-delay: 0.3s, 0s; }
+
+.game-card:nth-child(1)::before { 
+  background: linear-gradient(135deg, #ff8a00, #e52e71);
 }
-.game-card:nth-child(3) { 
-  background-image: linear-gradient(135deg, #11998e, #38ef7d), conic-gradient(from var(--angle), transparent 70%, rgba(255,255,255,0.8) 85%, transparent 100%);
-  animation: card-enter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards, spin-border 4s linear infinite;
-  animation-delay: 0.3s, 0s;
+.game-card:nth-child(2)::before { 
+  background: linear-gradient(135deg, #9d50bb, #6e48aa);
+}
+.game-card:nth-child(3)::before { 
+  background: linear-gradient(135deg, #11998e, #38ef7d);
 }
 
 .game-card:hover:not(:disabled) {
@@ -365,15 +375,7 @@
 .game-card.revealed-lie {
   border-color: transparent;
   box-shadow: 0 0 40px rgba(163, 230, 53, 0.6);
-}
-.game-card:nth-child(1).revealed-lie {
-  background-image: linear-gradient(135deg, #ff8a00, #e52e71), conic-gradient(from var(--angle), #ff4545, #ffff00, #00ff99, #006aff, #ff0095, #ff4545);
-}
-.game-card:nth-child(2).revealed-lie {
-  background-image: linear-gradient(135deg, #9d50bb, #6e48aa), conic-gradient(from var(--angle), #ff4545, #ffff00, #00ff99, #006aff, #ff0095, #ff4545);
-}
-.game-card:nth-child(3).revealed-lie {
-  background-image: linear-gradient(135deg, #11998e, #38ef7d), conic-gradient(from var(--angle), #ff4545, #ffff00, #00ff99, #006aff, #ff0095, #ff4545);
+  background: conic-gradient(from var(--angle), #ff4545, #ffff00, #00ff99, #006aff, #ff0095, #ff4545);
 }
 
 .game-card:disabled {
