@@ -411,12 +411,16 @@
   margin-top: 1rem;
 }
 
+.btn-group .action-button {
+  flex: 1;
+}
+
 .btn-group.vertical {
   flex-direction: column;
 }
 
 .action-button {
-  flex: 1;
+  flex: none;
   padding: 1.25rem 2rem;
   font-size: 1.1rem;
   font-weight: 700;
