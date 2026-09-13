@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { io, Socket } from 'socket.io-client';
+import confetti from 'canvas-confetti';
 import './App.css';
 
 const BackgroundAnimals = () => {
@@ -99,6 +100,18 @@ function App() {
       setAnswers(answers);
       setPlayers(players);
       setGameStatus('revealed');
+      
+      // Celebrate if this player got it right!
+      const myAnswer = socket.id ? answers[socket.id] : undefined;
+      const lieStatement = statements.find((s: Statement) => s.isLie);
+      if (lieStatement && myAnswer === lieStatement.id) {
+        confetti({
+          particleCount: 150,
+          spread: 80,
+          origin: { y: 0.6 },
+          colors: ['#a855f7', '#3b82f6', '#fbbf24', '#22c55e']
+        });
+      }
     });
 
     socket.on('game_over', ({ players }) => {
