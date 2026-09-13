@@ -235,7 +235,7 @@ function App() {
     if (gameStatus === 'revealed') {
       if (statement.isLie) {
         className += ' correct';
-      } else if (answers[socket.id] === statement.id) {
+      } else if (socket.id && answers[socket.id] === statement.id) {
         className += ' incorrect';
       } else {
         className += ' revealed-lie'; 
