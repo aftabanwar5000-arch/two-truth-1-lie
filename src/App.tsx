@@ -5,22 +5,8 @@ import './App.css';
 const BackgroundAnimals = () => {
   return (
     <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', overflow: 'hidden', pointerEvents: 'none', opacity: 0.15, zIndex: 0 }}>
-      {/* Existing */}
-      <div style={{ position: 'absolute', top: '10%', left: '10%', fontSize: '6rem', animation: 'float-animal 80s infinite alternate' }}>🐼</div>
-      <div style={{ position: 'absolute', top: '70%', left: '20%', fontSize: '8rem', animation: 'float-animal 95s infinite alternate-reverse' }}>🦊</div>
-      <div style={{ position: 'absolute', top: '20%', left: '80%', fontSize: '7.5rem', animation: 'float-animal 110s infinite alternate' }}>🐯</div>
-      <div style={{ position: 'absolute', top: '80%', left: '75%', fontSize: '6.5rem', animation: 'float-animal 85s infinite alternate-reverse' }}>🦁</div>
-      <div style={{ position: 'absolute', top: '40%', left: '50%', fontSize: '9rem', animation: 'float-animal 105s infinite alternate' }}>🐵</div>
-      
-      {/* New additions */}
-      <div style={{ position: 'absolute', top: '15%', left: '45%', fontSize: '5.5rem', animation: 'float-animal 90s infinite alternate' }}>🐶</div>
-      <div style={{ position: 'absolute', top: '50%', left: '15%', fontSize: '6.5rem', animation: 'float-animal 100s infinite alternate-reverse' }}>🐱</div>
-      <div style={{ position: 'absolute', top: '85%', left: '40%', fontSize: '7rem', animation: 'float-animal 82s infinite alternate' }}>🐻</div>
-      <div style={{ position: 'absolute', top: '30%', left: '90%', fontSize: '5rem', animation: 'float-animal 115s infinite alternate-reverse' }}>🐨</div>
-      <div style={{ position: 'absolute', top: '65%', left: '85%', fontSize: '6.5rem', animation: 'float-animal 120s infinite alternate' }}>🐹</div>
-      <div style={{ position: 'absolute', top: '5%', left: '60%', fontSize: '6rem', animation: 'float-animal 108s infinite alternate-reverse' }}>🐸</div>
-      <div style={{ position: 'absolute', top: '55%', left: '35%', fontSize: '8.5rem', animation: 'float-animal 88s infinite alternate' }}>🐷</div>
-      <div style={{ position: 'absolute', top: '90%', left: '10%', fontSize: '7.5rem', animation: 'float-animal 98s infinite alternate-reverse' }}>🐰</div>
+      <div style={{ position: 'absolute', top: '15%', left: '15%', fontSize: '8rem', animation: 'float-animal 80s infinite alternate' }}>🐼</div>
+      <div style={{ position: 'absolute', top: '75%', left: '75%', fontSize: '9rem', animation: 'float-animal 95s infinite alternate-reverse' }}>🐵</div>
     </div>
   );
 };
