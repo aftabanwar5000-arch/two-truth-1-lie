@@ -444,18 +444,29 @@ function App() {
       return (
         <div className="view-container">
           <BackgroundAnimals />
-          <div className="header">
-            <h1 className="title">Writing Phase</h1>
-            <p className="subtitle">Players are writing their truths and lies...</p>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem', zIndex: 10 }}>
+            {/* Cute Panda Icon */}
+            <div style={{ fontSize: '7rem', animation: 'float 3s ease-in-out infinite' }}>
+              🐼
+            </div>
+            
+            <div className="header" style={{ marginBottom: 0 }}>
+              <h1 className="title" style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>Please wait...</h1>
+              <p className="subtitle" style={{ fontSize: '1.2rem', opacity: 0.8 }}>Players are writing their truths and lies!</p>
+            </div>
+            
+            {/* Professional Submission Tracker */}
+            <div style={{ background: 'rgba(25, 27, 42, 0.6)', backdropFilter: 'blur(10px)', padding: '1rem 2rem', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 4px 15px rgba(0,0,0,0.3)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <span style={{ fontSize: '1.2rem', color: '#cbd5e1', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>Submitted:</span>
+              <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fbbf24' }}>{submittedCount} <span style={{ color: '#fff', fontSize: '1.2rem', opacity: 0.5 }}>/</span> {players.length}</span>
+            </div>
+
+            {isHost && submittedCount === players.length && (
+              <button className="action-button btn-accent" style={{ marginTop: '1rem', width: '100%', maxWidth: '300px' }} onClick={handleStartGameRounds}>
+                Begin Game
+              </button>
+            )}
           </div>
-          <div className="score-board">
-            <span style={{ fontSize: '1.2rem' }}>Submitted: {submittedCount} / {players.length}</span>
-          </div>
-          {isHost && submittedCount === players.length && (
-            <button className="action-button btn-accent" style={{ marginTop: '2rem' }} onClick={handleStartGameRounds}>
-              Begin Game
-            </button>
-          )}
         </div>
       );
     }
@@ -464,18 +475,29 @@ function App() {
       return (
         <div className="view-container">
           <BackgroundAnimals />
-          <div className="header">
-            <h1 className="title">Great Job!</h1>
-            <p className="subtitle">Waiting for others to finish writing...</p>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem', zIndex: 10 }}>
+            {/* Cute Panda Icon */}
+            <div style={{ fontSize: '7rem', animation: 'float 3s ease-in-out infinite' }}>
+              🐼
+            </div>
+            
+            <div className="header" style={{ marginBottom: 0 }}>
+              <h1 className="title" style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>Please wait...</h1>
+              <p className="subtitle" style={{ fontSize: '1.2rem', opacity: 0.8 }}>Waiting for others to finish writing!</p>
+            </div>
+            
+            {/* Professional Submission Tracker */}
+            <div style={{ background: 'rgba(25, 27, 42, 0.6)', backdropFilter: 'blur(10px)', padding: '1rem 2rem', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 4px 15px rgba(0,0,0,0.3)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <span style={{ fontSize: '1.2rem', color: '#cbd5e1', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>Submitted:</span>
+              <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fbbf24' }}>{submittedCount} <span style={{ color: '#fff', fontSize: '1.2rem', opacity: 0.5 }}>/</span> {players.length}</span>
+            </div>
+
+            {isHost && submittedCount === players.length && (
+              <button className="action-button btn-accent" style={{ marginTop: '1rem', width: '100%', maxWidth: '300px' }} onClick={handleStartGameRounds}>
+                Begin Game
+              </button>
+            )}
           </div>
-          <div className="score-board">
-            <span style={{ fontSize: '1.2rem' }}>Submitted: {submittedCount} / {players.length}</span>
-          </div>
-          {isHost && submittedCount === players.length && (
-            <button className="action-button btn-accent" style={{ marginTop: '2rem' }} onClick={handleStartGameRounds}>
-              Begin Game
-            </button>
-          )}
         </div>
       );
     }
