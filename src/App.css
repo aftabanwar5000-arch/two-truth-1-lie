@@ -281,11 +281,9 @@
 /* Individual Game Card (Desktop / Default) */
 .game-card {
   position: relative;
-  flex: 1 1 30%;
-  max-width: 400px;
-  min-width: 250px;
-  min-height: 280px;
-  aspect-ratio: auto;
+  width: 260px;
+  height: 380px;
+  flex: none;
   padding: 1.5rem;
   border-radius: 1.5rem;
   color: #fff;
@@ -305,17 +303,17 @@
 }
 
 .game-card:nth-child(1) { 
-  background: linear-gradient(135deg, #ff8a00, #e52e71);
+  background: linear-gradient(180deg, #ff9a44, #fc6076);
   animation: card-enter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
   animation-delay: 0.1s;
 }
 .game-card:nth-child(2) { 
-  background: linear-gradient(135deg, #9d50bb, #6e48aa);
+  background: linear-gradient(180deg, #b346d8, #7a23c5);
   animation: card-enter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
   animation-delay: 0.2s;
 }
 .game-card:nth-child(3) { 
-  background: linear-gradient(135deg, #11998e, #38ef7d);
+  background: linear-gradient(180deg, #818aab, #5e6682);
   animation: card-enter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
   animation-delay: 0.3s;
 }
@@ -348,9 +346,32 @@
   animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
 }
 
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin-border {
+  to {
+    --angle: 360deg;
+  }
+}
+
 .game-card.revealed-lie {
-  border-color: #a3e635; /* Neon green */
-  box-shadow: 0 0 40px rgba(163, 230, 53, 0.6), inset 0 0 20px rgba(163, 230, 53, 0.4);
+  border-color: transparent;
+  box-shadow: 0 0 40px rgba(163, 230, 53, 0.6);
+  z-index: 1;
+}
+
+.game-card.revealed-lie::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 1.75rem;
+  background: conic-gradient(from var(--angle), #ff4545, #ffff00, #00ff99, #006aff, #ff0095, #ff4545);
+  z-index: -1;
+  animation: spin-border 3s linear infinite;
 }
 
 .game-card:disabled {
@@ -546,6 +567,7 @@
   .game-card {
     width: 100%;
     max-width: 100%;
+    height: auto;
     min-height: 100px;
     padding: 1.25rem;
     border-radius: 1.25rem;
