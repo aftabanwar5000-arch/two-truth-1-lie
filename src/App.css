@@ -281,8 +281,8 @@
 /* Individual Game Card (Desktop / Default) */
 .game-card {
   position: relative;
-  width: 260px;
-  height: 380px;
+  width: 220px;
+  height: 330px;
   flex: none;
   padding: 1.5rem;
   border-radius: 1.5rem;
