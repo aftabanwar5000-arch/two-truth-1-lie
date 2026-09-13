@@ -12,7 +12,7 @@ const BackgroundAnimals = () => {
   );
 };
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://ptjar-39-63-183-144.run.pinggy-free.link';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://trading-finished-minimize-tier.trycloudflare.com';
 const socket: Socket = io(BACKEND_URL, {
   autoConnect: false
 });
