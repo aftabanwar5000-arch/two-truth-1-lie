@@ -553,25 +553,18 @@
     max-width: 100%;
     min-height: 100px;
     padding: 1.25rem;
-    border-radius: 20px;
-    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.25rem;
     animation: card-enter 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
-    background-image: none !important;
   }
   
-  .game-card:nth-child(1) { background: linear-gradient(90deg, #ff8a00, #e52e71) !important; animation-delay: 0.1s; }
-  .game-card:nth-child(2) { background: linear-gradient(90deg, #9d50bb, #6e48aa) !important; animation-delay: 0.2s; }
-  .game-card:nth-child(3) { background: linear-gradient(90deg, #11998e, #38ef7d) !important; animation-delay: 0.3s; }
-
   .game-card:hover:not(:disabled) {
     transform: translateY(-4px);
-    box-shadow: 0 12px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.15);
   }
 
   .game-card:active:not(:disabled) {
-    transform: translateY(4px);
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.15);
   }
   
   .btn-group {
