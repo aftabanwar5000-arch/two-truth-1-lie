@@ -14,7 +14,8 @@ const BackgroundAnimals = () => {
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://trading-finished-minimize-tier.trycloudflare.com';
 const socket: Socket = io(BACKEND_URL, {
-  autoConnect: false
+  autoConnect: false,
+  transports: ['websocket']
 });
 
 type Player = { id: string, name: string, score: number };
