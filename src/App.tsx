@@ -603,11 +603,8 @@ function App() {
         {/* MIDDLE ROW (Banner + Cards) */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, zIndex: 5, width: '100%' }}>
           
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '2rem' }}>
-            <div className="player-avatar" style={{ width: '50px', height: '50px', fontSize: '1.5rem' }}>
-              🧑‍🦱
-            </div>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', fontWeight: 800, color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.3)', margin: 0, textAlign: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '2rem', width: '100%' }}>
+            <h2 style={{ fontSize: 'clamp(1.2rem, 4vw, 2rem)', fontWeight: 800, color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.3)', margin: 0, textAlign: 'center', whiteSpace: 'nowrap', letterSpacing: '1px' }}>
               {isMyTurn ? "They are guessing your lie!" : `Guess ${roundInfo?.subjectName}'s lie!`}
             </h2>
           </div>
