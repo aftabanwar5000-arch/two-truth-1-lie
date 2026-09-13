@@ -666,6 +666,10 @@ function App() {
               </button>
             </div>
           )}
+          
+          <div style={{ marginTop: 'auto', marginBottom: '1rem', color: 'rgba(255, 255, 255, 0.3)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase', textAlign: 'center' }}>
+            Among Us Pakistan Discord Server
+          </div>
         </div>
       </div>
     );
